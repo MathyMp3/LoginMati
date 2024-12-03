@@ -1,10 +1,26 @@
 //principal.php
-<?php
-session_start();
-if (!empty($_SESSION['usuario'])) {
-echo "Bienvenido, " . $_SESSION['usuario'] . "!<br>";
-echo "<a href='cerrar.php'>Cerrar Sesi´on</a>";
-} else {
+<?php session_start();
+if (!empty($_SESSION['usuario'])) { ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>P´agina Principal</title>
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Bienvenido, <?php echo $_SESSION['usuario']; ?> !</h1>
+<button onclick="cerrar()">Cerrar Sesi´on</button>
+<script>
+function cerrar() {
+window.location = "cerrar.php";
+}
+</script>
+</body>
+</html>
+<?php } else {
 header('Location: ./');
 }
 ?>
